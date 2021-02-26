@@ -63,3 +63,5 @@ C:\Users\alyne\projetos\CodersAcademy\Backend\bin\Debug\net5.0\runtimes\unix\lib
 C:\Users\alyne\projetos\CodersAcademy\Backend\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\alyne\projetos\CodersAcademy\Backend\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\alyne\projetos\CodersAcademy\Backend\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\alyne\projetos\CodersAcademy\Backend\bin\Debug\net5.0\Humanizer.dll
+C:\Users\alyne\projetos\CodersAcademy\Backend\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
