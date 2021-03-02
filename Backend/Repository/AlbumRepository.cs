@@ -7,6 +7,9 @@ namespace Backend.Repository
 {
     public class AlbumRepository : BaseRepository<Album>, IRepository<Album>
     {
-       
+       public AlbumRepository(Context context) : base(context)
+       {
+           
+       }
     }
 }

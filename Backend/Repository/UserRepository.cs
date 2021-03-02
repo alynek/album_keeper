@@ -5,31 +5,11 @@ using Backend.Model;
 
 namespace Backend.Repository
 {
-    public class UserRepository : IRepository<User>
+    public class UserRepository : BaseRepository<User>, IRepository<User>
     {
-        public Task<IEnumerable<User>> GetAll()
+        public UserRepository(Context context) : base(context)
         {
-            throw new NotImplementedException();
-        }
 
-        public Task<User> GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Remove(User item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Save(User item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Update(User item)
-        {
-            throw new NotImplementedException();
         }
     }
 }
