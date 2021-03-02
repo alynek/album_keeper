@@ -32,6 +32,11 @@ namespace Backend
             {
                 opt.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddScoped(typeof(BaseRepository<>));
+            services.AddScoped<UserRepository>();
+            services.AddScoped<AlbumRepository>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

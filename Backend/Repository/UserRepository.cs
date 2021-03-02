@@ -9,7 +9,7 @@ namespace Backend.Repository
     {
         public UserRepository(Context context) : base(context)
         {
-
+            
         }
     }
 }
