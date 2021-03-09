@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Backend.Model
@@ -6,7 +7,11 @@ namespace Backend.Model
     public class Music
     {
         public Guid Id { get; set; }
+
+        [Required]
         public string Name { get; set; }
+
+        [Required]
         public int Duration { get; set; }
 
         [JsonIgnore]
