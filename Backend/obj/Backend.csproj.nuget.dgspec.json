@@ -1,21 +1,18 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alyne\\projetos\\CodersAcademy\\Backend\\Backend.csproj": {}
+    "C:\\Users\\alyne\\projects\\album_keeper\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alyne\\projetos\\CodersAcademy\\Backend\\Backend.csproj": {
+    "C:\\Users\\alyne\\projects\\album_keeper\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alyne\\projetos\\CodersAcademy\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\alyne\\projects\\album_keeper\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\alyne\\projetos\\CodersAcademy\\Backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\alyne\\projects\\album_keeper\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\alyne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alyne\\projetos\\CodersAcademy\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\alyne\\projects\\album_keeper\\Backend\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\alyne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -88,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

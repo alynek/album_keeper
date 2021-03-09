@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fDRrEPYiDDBNXB0aChacy4a/K37SKVJXM6A953ksJlqael463zksnIiLh5wXVgY01I5VFH/hKtA1KcUzMRAdrw==",
+  "dgSpecHash": "p+wXAq5ykCQRuq1h7kE8pWVCClCZXqOldNMYnCoHRF0cDLaTyatwOQQ10IHzAuBIR23Q5jttUX3X8b2ft8AgNQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alyne\\projetos\\CodersAcademy\\Backend\\Backend.csproj",
+  "projectFilePath": "C:\\Users\\alyne\\projects\\album_keeper\\Backend\\Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alyne\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\alyne\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
