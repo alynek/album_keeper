@@ -35,6 +35,11 @@ namespace Backend.Controllers
         [HttpPost("{albumId}")]
         public async Task<IActionResult> Post(Guid albumId, Music model)
         {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var album = await AlbumRepository.GetById(albumId);
             album.Musics.Add(model);
             await AlbumRepository.Update(album);
