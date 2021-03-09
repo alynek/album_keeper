@@ -14,6 +14,11 @@ namespace Backend.Repository
            
        }
 
+       public new async Task<IList<Album>> GetAll()
+       {
+           return await this.Query.Include(x => x.Musics).ToListAsync();
+       }
+
        public async Task<IList<Music>> GetMusicFromAlbum(Guid albumId)
        {
            return await this.Query.Include(x => x.Musics)
