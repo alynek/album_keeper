@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Backend.Model;
 using Backend.Repository;
@@ -30,15 +31,15 @@ namespace Backend.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Album album)
+        public async Task<IActionResult> Post(Album model)
         {
             if(!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             
-            await Repository.Save(album);
-            return Created($"/{album.Id}", album);
+            await Repository.Save(model);
+            return Created($"/{model.Id}", model);
         }
 
         [HttpDelete("{id:Guid}")]
