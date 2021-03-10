@@ -20,6 +20,26 @@ namespace Backend.Controllers
             AlbumRepository = albumRepository;
         }
 
+        [HttpPost("authenticate")]
+        public async Task<IActionResult> SignIn(SignInViewModel model)
+        {
+            if(!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var passwordConvertedToBase64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(model.Password));
+            var user = await Repository.Authenticate(model.Email, passwordConvertedToBase64);
+
+            if(user == null)
+            {
+                return UnprocessableEntity(new 
+                {
+                    Message = "Invalid email or password"
+                });
+            }
+
+            return Ok(user);
+        }
+
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterUserViewModel model)
         {

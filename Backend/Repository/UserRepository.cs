@@ -23,5 +23,14 @@ namespace Backend.Repository
                 .SelectMany(x => x.FavoriteMusics)
                 .ToListAsync();
         }
+
+        public async Task<User> Authenticate(string email, string password)
+        {
+            return await Query.Include(x => x.FavoriteMusics)
+                .ThenInclude(x => x.Music)
+                .ThenInclude(x => x.Album)
+                .Where(x => x.Email == email &&  x.Password == password)
+                .FirstOrDefaultAsync();
+        }
     }
 }
