@@ -14,19 +14,19 @@ namespace Backend.Controllers
         private AlbumRepository Repository{get; set;}
         public AlbumController(AlbumRepository repository)
         {
-            Repository = repository;
+            this.Repository = repository;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(await Repository.GetAll());
+            return Ok(await this.Repository.GetAll());
         }
 
         [HttpGet("{id:Guid}")]
         public async Task<IActionResult> GetAlbum(Guid id)
         {
-            var result = (await Repository.GetById(id));
+            var result = (await this.Repository.GetById(id));
             return result is not null ? Ok(result) : NotFound();
         }
 
@@ -38,15 +38,15 @@ namespace Backend.Controllers
                 return BadRequest(ModelState);
             }
             
-            await Repository.Save(model);
+            await this.Repository.Save(model);
             return Created($"/{model.Id}", model);
         }
 
         [HttpDelete("{id:Guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var result = await Repository.GetById(id);
-            await Repository.Remove(result);
+            var result = await this.Repository.GetById(id);
+            await this.Repository.Remove(result);
             return NoContent();
         }
     }

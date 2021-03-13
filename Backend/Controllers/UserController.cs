@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Controllers
 {
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {     
@@ -16,8 +16,8 @@ namespace Backend.Controllers
         private AlbumRepository AlbumRepository{get; set;}
         public UserController(UserRepository repository, AlbumRepository albumRepository)
         {
-            Repository = repository;
-            AlbumRepository = albumRepository;
+            this.Repository = repository;
+            this.AlbumRepository = albumRepository;
         }
 
         [HttpPost("authenticate")]
@@ -27,7 +27,7 @@ namespace Backend.Controllers
                 return BadRequest(ModelState);
 
             var passwordConvertedToBase64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(model.Password));
-            var user = await Repository.Authenticate(model.Email, passwordConvertedToBase64);
+            var user = await this.Repository.Authenticate(model.Email, passwordConvertedToBase64);
 
             if(user == null)
             {
@@ -52,35 +52,35 @@ namespace Backend.Controllers
             user.Password = Convert.ToBase64String(Encoding.UTF8.GetBytes(model.Password));
             user.Photo = $"https://robohash.org/{Guid.NewGuid()}.png?bgset=any";
 
-            await Repository.Save(user);
+            await this.Repository.Save(user);
             return Created($"{user.Id}", user);
         }
 
         [HttpGet("{id}/favorite-music")]
         public async Task<IActionResult> GetUserFavoriteMusic(Guid id)
         {
-            return Ok(await Repository.GetFavoriteMusics(id));
+            return Ok(await this.Repository.GetFavoriteMusics(id));
         }
 
         [HttpPost("{id}/favorite-music/{musicId}")]
         public async Task<IActionResult> SaveUserFavoriteMusic(Guid id, Guid musicId)
         {
-            var music = await AlbumRepository.GetMusic(musicId);
-            var user = await Repository.GetById(id);
+            var music = await this.AlbumRepository.GetMusic(musicId);
+            var user = await this.Repository.GetById(id);
 
             user.AddFavoriteMusic(music);
-            await Repository.Update(user);
+            await this.Repository.Update(user);
             return Ok(user);
         }
 
-        [HttpDelete("{id}/favorite-music/{musidId}")]
+        [HttpDelete("{id}/favorite-music/{musicId}")]
         public async Task<IActionResult> RemoveUserFavoriteMusic(Guid id, Guid musicId)
         {
-            var music = await AlbumRepository.GetMusic(musicId);
-            var user = await Repository.GetById(id);
+            var music = await this.AlbumRepository.GetMusic(musicId);
+            var user = await this.Repository.GetById(id);
 
             user.RemoveFavoriteMusic(music);
-            await Repository.Update(user);
+            await this.Repository.Update(user);
             return Ok(user);
         }
     }

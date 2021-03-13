@@ -16,7 +16,7 @@ namespace Backend.Repository
 
         public async Task<IList<UserFavoriteMusic>> GetFavoriteMusics(Guid id)
         {
-            return await Query.Include(x => x.FavoriteMusics)
+            return await this.Query.Include(x => x.FavoriteMusics)
                 .ThenInclude(x => x.Music)
                 .ThenInclude(x => x.Album)
                 .Where(x => x.Id == id)
@@ -26,10 +26,19 @@ namespace Backend.Repository
 
         public async Task<User> Authenticate(string email, string password)
         {
-            return await Query.Include(x => x.FavoriteMusics)
+            return await this.Query.Include(x => x.FavoriteMusics)
                 .ThenInclude(x => x.Music)
                 .ThenInclude(x => x.Album)
                 .Where(x => x.Email == email &&  x.Password == password)
+                .FirstOrDefaultAsync();
+        }
+
+        public new async Task<User> GetById(Guid id)
+        {
+            return await this.Query.Include(x => x.FavoriteMusics)
+                .ThenInclude(x => x.Music)
+                .ThenInclude(x => x.Album)
+                .Where(x => x.Id == id)
                 .FirstOrDefaultAsync();
         }
     }

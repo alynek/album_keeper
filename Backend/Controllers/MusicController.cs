@@ -14,20 +14,20 @@ namespace Backend.Controllers
 
         public MusicController(AlbumRepository repository)
         {
-            AlbumRepository = repository;
+            this.AlbumRepository = repository;
         }
 
-        [HttpGet]
+        [HttpGet()]
         public async Task<IActionResult> GetAll(Guid id)
         {
-            var music = await AlbumRepository.GetMusicFromAlbum(id);
+            var music = await this.AlbumRepository.GetMusicFromAlbum(id);
             return Ok(music);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
-            var music = await AlbumRepository.GetMusic(id);
+            var music = await this.AlbumRepository.GetMusic(id);
             return Ok(music);
         }
 
@@ -40,9 +40,9 @@ namespace Backend.Controllers
                 return BadRequest(ModelState);
             }
 
-            var album = await AlbumRepository.GetById(albumId);
+            var album = await this.AlbumRepository.GetById(albumId);
             album.Musics.Add(model);
-            await AlbumRepository.Update(album);
+            await this.AlbumRepository.Update(album);
             return Ok();
         }
     }

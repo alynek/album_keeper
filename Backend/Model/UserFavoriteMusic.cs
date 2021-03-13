@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 namespace Backend.Model
 {
@@ -8,6 +9,8 @@ namespace Backend.Model
         public Guid MusicId { get; set; }
         public Guid UserId { get; set; }
         public Music Music { get; set; }
+
+        [JsonIgnore]
         public User User { get; set; }
     }
 }
